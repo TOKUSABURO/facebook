@@ -1,15 +1,24 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+
+
+
 
   resources :blogs,only:[:index,:new,:create,:edit,:update,:destroy]do
   collection do
      post :confirm
    end
 
+   devise_for :users, controllers: {
+   omniauth_callbacks: "users/omniauth_callbacks"
+   }
 
-
+  resources:blogs do
+    resources:comments
+    post :confirm, on: :collection
   end
+
+end
 
   root 'top#index'
 
