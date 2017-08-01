@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
 
+  # resources :blogs,only:[:index,:new,:create,:edit,:update,:destroy]do
+  # collection do
+  #    post :confirm
+  #  end
 
-
-
-
-  resources :blogs,only:[:index,:new,:create,:edit,:update,:destroy]do
-  collection do
-     post :confirm
-   end
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
 
    devise_for :users, controllers: {
    omniauth_callbacks: "users/omniauth_callbacks"
@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     post :confirm, on: :collection
   end
 
-end
+
 
   root 'top#index'
 

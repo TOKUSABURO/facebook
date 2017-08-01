@@ -37,6 +37,8 @@ group :development do
 
  gem 'dotenv-rails'
 
+ gem 'letter_opener_web'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

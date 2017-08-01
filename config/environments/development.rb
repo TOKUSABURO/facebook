@@ -37,6 +37,9 @@ Rails.application.configure do
   config.assets.raise_runtime_errors = true
   BetterErrors::Middleware.allow_ip! "10.0.2.2"
 
+  config.action_mailer.default_url_options = { host: 'localhost:3000' }
+  config.action_mailer.delivery_method = :letter_opener_web
+
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 end
