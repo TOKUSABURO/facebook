@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'relationships/create'
+
+  get 'relationships/destroy'
+
   # resources :blogs,only:[:index,:new,:create,:edit,:update,:destroy]do
   # collection do
   #    post :confirm
@@ -18,7 +22,13 @@ Rails.application.routes.draw do
     post :confirm, on: :collection
   end
 
+  resources :users, only: [:index]
 
+  resources :relationships, only: [:create, :destroy]
+
+  resources :conversations do
+    resources :messages
+  end
 
   root 'top#index'
 
