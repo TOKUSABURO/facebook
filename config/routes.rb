@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'relationships/create'
 
-  get 'relationships/destroy'
 
   # resources :blogs,only:[:index,:new,:create,:edit,:update,:destroy]do
   # collection do
