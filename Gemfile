@@ -41,6 +41,12 @@ gem 'therubyracer', platforms: :ruby
 
 gem 'rails_12factor', group: :production
 
+gem 'fog'
+
+gem 'therubyracer'
+
+
+
 group :development do
 
  gem 'dotenv-rails'
@@ -53,11 +59,7 @@ group :development do
 
  gem 'mini_magick'
 
- gem 'fog'
 
-gem 'therubyracer', platforms: :ruby
-
-gem 'therubyracer'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
