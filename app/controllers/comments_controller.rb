@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+
   def create
     # Blogをパラメータの値から探し出し,Blogに紐づくcommentsとしてbuildします。
     @comment = current_user.comments.build(comment_params)
@@ -21,7 +22,7 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
      respond_to do |format|
        if @comment.update(comment_params)
-         format.html { redirect_to blog_path(@blog), notice: 'コメントを更新しました。' }
+         format.html { redirect_to blog_path(@comment.blog.id), notice: 'コメントを更新しました。' }
          else
        format.html { render :edit }
     end
