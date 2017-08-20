@@ -1,6 +1,5 @@
 <div class="panel panel-default">
-2   <div class="panel-heading"><a href="https://www.bootply.com/render/96266#" class="pull-right">View all</a> <h4><%= @topic.title %> by <%= @topic.user.name %>へのコメントを編集</h4></div>
-3   <div class="panel-body">
-4   <%= render partial: 'comments/form', locals: { comment: @comment, topic: @topic } %>
+
+4   <%= render partial: 'comments/form', locals: { comment: @comment, blog: @blog } %>
 5   </div>
 6 </div>

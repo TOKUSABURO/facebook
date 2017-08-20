@@ -14,17 +14,19 @@ class CommentsController < ApplicationController
       end
 
   def edit
-    @blog = comment.find(params[:blog_id])
+    @comment = Comment.find(params[:id])
   end
 
   def update
-    @blog = @comment.blog
+    @comment = Comment.find(params[:id])
      respond_to do |format|
-       format.html { redirect_to blog_path(@blog), notice: 'コメントを更新しました。' }
-     else
-      format.html { render :edit }
+       if @comment.update(comment_params)
+         format.html { redirect_to blog_path(@blog), notice: 'コメントを更新しました。' }
+         else
+       format.html { render :edit }
     end
-   end
+  end
+end
 
   def destroy
     @comment = Comment.find(params[:id])
@@ -45,3 +47,14 @@ class CommentsController < ApplicationController
     def comment_params
       params.require(:comment).permit(:blog_id, :content)
     end
+
+    def set_comment
+      @comment = Comment.find(params[:id])
+    end
+
+
+   def set_user
+    @user = current_user
+   end
+
+  end
