@@ -33,11 +33,19 @@ gem 'omniauth-twitter'
 
 gem 'omniauth-facebook'
 
+gem 'dotenv-rails'
+
+gem 'unicorn'
+
+gem 'therubyracer', platforms: :ruby
+
 gem 'rails_12factor', group: :production
 
 group :development do
 
  gem 'dotenv-rails'
+
+
 
  gem 'letter_opener_web'
 
@@ -46,6 +54,8 @@ group :development do
  gem 'mini_magick'
 
  gem 'fog'
+
+gem 'therubyracer', platforms: :ruby
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -69,6 +79,12 @@ group :development, :test do
   gem 'pry-rails'
 
   gem 'better_errors'
+
+  gem 'capistrano', '3.6.0'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
+  gem 'capistrano3-unicorn'
 
 
 end
