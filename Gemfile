@@ -43,10 +43,6 @@ gem 'rails_12factor', group: :production
 
 gem 'fog'
 
-gem 'therubyracer'
-
-
-
 group :development do
 
  gem 'dotenv-rails'
