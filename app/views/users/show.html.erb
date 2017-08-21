@@ -1,0 +1,23 @@
+<div class="container">
+  <h2>ユーザー詳細ページ</h2>
+  <% @user %>
+      <div class="container-child col-md-2 col-sm-4 col-xs-6 ">
+        　<%= profile_img(@user) %>
+        　<%= @user.email %>
+        <br>
+        </br>
+
+        <h5><font color="#8B0000">フォロワー</font></h5>
+
+          <% @user.followers.each do|followers| %>
+           <p><%= followers.name %></p>
+          <% end %>
+
+　　　　<h5><font color="#8B0000">フォローユーザー</font></h5>
+
+          <% @user.followed_users.each do|followed_users|%>
+           <p><%= followed_users.name %></p>
+           <% end%>
+
+          </div>
+  </div>

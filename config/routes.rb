@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     post :confirm, on: :collection
   end
 
-  resources :users, only: [:index]
+  resources :users, only: [:index,:show]
 
   resources :relationships, only: [:create, :destroy]
 
