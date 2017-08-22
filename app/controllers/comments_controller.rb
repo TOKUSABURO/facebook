@@ -31,17 +31,16 @@ end
 
   def destroy
     @comment = Comment.find(params[:id])
-    @comment.destroy
     respond_to do |format|
      if @comment.destroy
-       format.html { redirect_to blog_path(@blog), notice: 'コメントを削除しました。' }
-       # JS形式でレスポンスを返します。
+     # JS形式でレスポンスを返します。
        format.js { render :index }
      else
        format.html { render :new }
-      end
+     end
    end
-  end
+ end
+
 
   private
     # ストロングパラメーター
@@ -49,13 +48,6 @@ end
       params.require(:comment).permit(:blog_id, :content)
     end
 
-    def set_comment
-      @comment = Comment.find(params[:id])
-    end
 
-
-   def set_user
-    @user = current_user
-   end
 
   end

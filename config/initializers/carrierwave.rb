@@ -12,10 +12,10 @@ CarrierWave.configure do |config|
 
   case Rails.env
     when 'production'
-      config.fog_directory = 'foodbook-production-hiramoto'
-      config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/foodbook-production-hiramoto'
+      config.fog_directory = 'foodbook-production'
+      config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/foodbook-production'
     when 'development'
-      config.fog_directory = 'foodbook-development-hiramoto'
-      config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/achieve-development-hiramoto'
+      config.fog_directory = 'foodbook-development'
+      config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/achieve-development'
   end
 end

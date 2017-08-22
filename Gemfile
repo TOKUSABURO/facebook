@@ -37,17 +37,15 @@ gem 'dotenv-rails'
 
 gem 'unicorn'
 
+gem 'fog'
+
 gem 'therubyracer', platforms: :ruby
 
 gem 'rails_12factor', group: :production
 
-gem 'fog'
-
 group :development do
 
  gem 'dotenv-rails'
-
-
 
  gem 'letter_opener_web'
 
