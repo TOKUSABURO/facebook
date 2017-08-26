@@ -5,6 +5,15 @@ class BlogsController < ApplicationController
 
   def index
     @blogs = Blog.all
+    respond_to do |format|
+   format.html
+   format.js
+   end
+  end
+
+  def show
+    @comment = @blog.comments.build
+    @comments = @blog.comments
   end
 
   def new

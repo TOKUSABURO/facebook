@@ -8,6 +8,7 @@ class CommentsController < ApplicationController
     respond_to do |format|
       if @comment.save
         format.html { redirect_to blog_path(@blog), notice: 'コメントを投稿しました。' }
+    
       else
         format.html { render :new }
       end
@@ -22,7 +23,8 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
      respond_to do |format|
        if @comment.update(comment_params)
-         format.html { redirect_to blog__path(@comment.blog.id), notice: 'コメントを更新しました。' }
+         format.html { redirect_to blog_path(@comment.blog.id), notice: 'コメントを更新しました。' }
+         format.js { render :index }
          else
        format.html { render :edit }
     end
@@ -49,6 +51,6 @@ end
       params.require(:comment).permit(:blog_id, :content)
     end
 
-  
+
 
   end
