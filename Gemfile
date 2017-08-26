@@ -43,6 +43,8 @@ gem 'carrierwave'
 
 gem 'mini_magick'
 
+gem 'faker'
+
 gem 'therubyracer', platforms: :ruby
 
 gem 'rails_12factor', group: :production
