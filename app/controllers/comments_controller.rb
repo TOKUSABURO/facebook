@@ -3,17 +3,18 @@ class CommentsController < ApplicationController
   def create
     # Blogをパラメータの値から探し出し,Blogに紐づくcommentsとしてbuildします。
     @comment = current_user.comments.build(comment_params)
+
     @blog = @comment.blog
     # クライアント要求に応じてフォーマットを変更
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to blog_path(@blog), notice: 'コメントを投稿しました。' }
-
+       format.html { redirect_to blog_path(@blog), notice: 'コメントを投稿しました。' }
+       format.js { render :index }
       else
         format.html { render :new }
       end
-        end
-      end
+    end
+  end
 
   def edit
     @comment = Comment.find(params[:id])
@@ -23,25 +24,24 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
      respond_to do |format|
        if @comment.update(comment_params)
-         format.html { redirect_to blog_path(@comment.blog.id), notice: 'コメントを更新しました。' }
-         format.js { render :index }
-         else
-       format.html { render :edit }
-    end
+          format.html { redirect_to blog_path(@comment.blog.id), notice: 'コメントを更新しました。' }
+          format.js { render :index }
+        else
+          format.html { render :edit }
+        end
+      end
   end
-end
 
-  def destroy
+   def destroy
     @comment = Comment.find(params[:id])
     respond_to do |format|
-     if @comment.destroy
-       format.js { render :index }
-     else
-       format.html { render :new }
+      if @comment.destroy
+        format.js { render :index }
+      else
+        format.html { render :new }
       end
+    end
    end
- end
-
 
   private
     # ストロングパラメーター

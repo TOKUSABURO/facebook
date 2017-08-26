@@ -5,15 +5,13 @@ class BlogsController < ApplicationController
 
   def index
     @blogs = Blog.all
-    respond_to do |format|
-   format.html
-   format.js
-   end
-  end
+  
+end
 
   def show
     @comment = @blog.comments.build
     @comments = @blog.comments
+
   end
 
   def new
@@ -50,6 +48,7 @@ class BlogsController < ApplicationController
    @blog = Blog.find(params[:id])
    @blog.destroy
     redirect_to blogs_path,notice: "ブログを削除しました！"
+
  end
 
  def confirm
