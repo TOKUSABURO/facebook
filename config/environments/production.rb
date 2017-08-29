@@ -1,13 +1,13 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  config.action_mailer.default_url_options = { host: '52.69.178.13' }
+  config.action_mailer.default_url_options = { host: 'http://52.69.178.13' }
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings =
   {
    user_name: ENV['SENDGRID_USERNAME'],
    password: ENV['SENDGRID_PASSWORD'],
-   domain: "heroku.com",
+   domain: "52.69.178.13",
    address: "smtp.sendgrid.net",
    port: 587,
    authentication: :plain,
