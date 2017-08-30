@@ -46,6 +46,7 @@
   <div class="actions">
     <%= f.submit "更新" , class: "btn btn-primary btn-block"%>
   </div>
+
 <% end %>
 
 <h3>アカウント削除</h3>
@@ -54,28 +55,6 @@
 
 <%= link_to "戻る", :back , class: "btn btn-primary btn-block"%>
 
-<% if @user.provider.blank? %>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off", class: "form-control" %>
-  </div>
-
-<% end %>
 
   </div>
     </div>

@@ -50,6 +50,7 @@ class BlogsController < ApplicationController
 
  def confirm
     @blog = Blog.new(blogs_params)
+
   end
 
   def show
